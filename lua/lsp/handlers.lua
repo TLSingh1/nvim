@@ -66,10 +66,30 @@ local function lsp_highlight_document(client)
 	-- end
 end
 
+-- Check if the current file type is markdown
+local function is_markdown_file()
+  local file_type = vim.bo.filetype
+  return file_type == "markdown"
+end
+
+-- NOTE: Obsidian override. Probably in wrong spot
+-- Override a keybind only for markdown files
+local function override_markdown_keybind()
+  if is_markdown_file() then
+    return ":ObsidianFollowLink <CR>"
+  else
+    return "<cmd>lua vim.lsp.buf.definition()<CR>"
+  end
+end
+
+-- Call the function to override the keybind
+override_markdown_keybind()
+
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", override_markdown_keybind(), opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	--[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) ]]

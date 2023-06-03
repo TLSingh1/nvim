@@ -164,6 +164,16 @@ _G.packer_plugins = {
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/home/tai/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
+  },
+  ["lsp_lines.nvim"] = {
+    loaded = true,
+    path = "/home/tai/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
+    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -259,6 +269,12 @@ _G.packer_plugins = {
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/nvim-window-picker",
     url = "https://github.com/s1n7ax/nvim-window-picker"
   },
+  ["obsidian.nvim"] = {
+    config = { "\27LJ\2\nÉ\1\0\1\r\0\n\0#'\1\0\0\n\0\0\0X\2\15€\18\4\0\0009\2\1\0'\5\2\0'\6\3\0B\2\4\2\18\4\2\0009\2\1\2'\5\4\0'\6\0\0B\2\4\2\18\4\2\0009\2\5\2B\2\2\2\18\1\2\0X\2\16€)\2\1\0)\3\4\0+\4\0\0X\5\n€\18\6\1\0006\a\6\0009\a\a\a6\t\b\0009\t\t\t)\vA\0)\fZ\0B\t\3\0A\a\0\2&\1\a\6E\5\3\2R\5ô\127L\1\2\0\vrandom\tmath\tchar\vstring\nlower\18[^A-Za-z0-9-]\6_\6 \tgsub\5á\1\1\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0023\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14templates\1\0\3\vsubdir\14Templates\16time_format\n%H:%M\16date_format\16%a-%m-%d-%Y\17note_id_func\0\15completion\1\0\1\rnvim_cmp\2\1\0\2\bdir\f~/brain\21use_advanced_uri\2\nsetup\robsidian\frequire\0" },
+    loaded = true,
+    path = "/home/tai/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/epwalsh/obsidian.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -324,6 +340,11 @@ _G.packer_plugins = {
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
+  ["venn.nvim"] = {
+    loaded = true,
+    path = "/home/tai/.local/share/nvim/site/pack/packer/start/venn.nvim",
+    url = "https://github.com/jbyuki/venn.nvim"
+  },
   ["wilder.nvim"] = {
     loaded = true,
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/wilder.nvim",
@@ -332,6 +353,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: obsidian.nvim
+time([[Config for obsidian.nvim]], true)
+try_loadstring("\27LJ\2\nÉ\1\0\1\r\0\n\0#'\1\0\0\n\0\0\0X\2\15€\18\4\0\0009\2\1\0'\5\2\0'\6\3\0B\2\4\2\18\4\2\0009\2\1\2'\5\4\0'\6\0\0B\2\4\2\18\4\2\0009\2\5\2B\2\2\2\18\1\2\0X\2\16€)\2\1\0)\3\4\0+\4\0\0X\5\n€\18\6\1\0006\a\6\0009\a\a\a6\t\b\0009\t\t\t)\vA\0)\fZ\0B\t\3\0A\a\0\2&\1\a\6E\5\3\2R\5ô\127L\1\2\0\vrandom\tmath\tchar\vstring\nlower\18[^A-Za-z0-9-]\6_\6 \tgsub\5á\1\1\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0023\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14templates\1\0\3\vsubdir\14Templates\16time_format\n%H:%M\16date_format\16%a-%m-%d-%Y\17note_id_func\0\15completion\1\0\1\rnvim_cmp\2\1\0\2\bdir\f~/brain\21use_advanced_uri\2\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
+time([[Config for obsidian.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

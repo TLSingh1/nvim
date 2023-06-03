@@ -30,6 +30,7 @@ require("heirline-config")        -- Status Line + Winbar
 require("notify-config")          -- Notifications
 
 -- NOTE: UI / UX / QoL
+-- require("obsidian-config")         -- Obsidian
 require("lsp_lines-config")        -- LSP Lines
 require("inc_rename-config")       -- Incremental Renaming
 require("true-zen-config")         -- Better Zen Mode
