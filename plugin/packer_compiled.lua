@@ -189,6 +189,12 @@ _G.packer_plugins = {
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
+  neorg = {
+    config = { "\27LJ\2\n§\3\0\0\a\0\22\0\0316\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\20\0005\3\3\0004\4\0\0=\4\4\0035\4\6\0005\5\5\0=\5\a\4=\4\b\0035\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\a\4=\4\r\0034\4\0\0=\4\14\0034\4\0\0=\4\15\0034\4\0\0=\4\16\0035\4\18\0005\5\17\0=\5\a\4=\4\19\3=\3\21\2B\0\2\1K\0\1\0\tload\1\0\0\20core.completion\1\0\0\1\0\2\vengine\rnvim-cmp\tname\f[Neorg]\15core.itero\25core.export.markdown\16core.export\16core.dirman\1\0\0\15workspaces\1\0\2\nindex\15index.norg\22default_workspace\16neorg_brain\1\0\1\16neorg_brain\18~/neorg-brain\19core.concealer\vconfig\1\0\0\1\0\1\16icon_preset\vvaried\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
+    loaded = true,
+    path = "/home/tai/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
+  },
   ["noice.nvim"] = {
     loaded = true,
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/noice.nvim",
@@ -270,7 +276,7 @@ _G.packer_plugins = {
     url = "https://github.com/s1n7ax/nvim-window-picker"
   },
   ["obsidian.nvim"] = {
-    config = { "\27LJ\2\nÉ\1\0\1\r\0\n\0#'\1\0\0\n\0\0\0X\2\15€\18\4\0\0009\2\1\0'\5\2\0'\6\3\0B\2\4\2\18\4\2\0009\2\1\2'\5\4\0'\6\0\0B\2\4\2\18\4\2\0009\2\5\2B\2\2\2\18\1\2\0X\2\16€)\2\1\0)\3\4\0+\4\0\0X\5\n€\18\6\1\0006\a\6\0009\a\a\a6\t\b\0009\t\t\t)\vA\0)\fZ\0B\t\3\0A\a\0\2&\1\a\6E\5\3\2R\5ô\127L\1\2\0\vrandom\tmath\tchar\vstring\nlower\18[^A-Za-z0-9-]\6_\6 \tgsub\5á\1\1\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0023\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14templates\1\0\3\vsubdir\14Templates\16time_format\n%H:%M\16date_format\16%a-%m-%d-%Y\17note_id_func\0\15completion\1\0\1\rnvim_cmp\2\1\0\2\bdir\f~/brain\21use_advanced_uri\2\nsetup\robsidian\frequire\0" },
+    config = { "\27LJ\2\nÉ\1\0\1\r\0\n\0#'\1\0\0\n\0\0\0X\2\15€\18\4\0\0009\2\1\0'\5\2\0'\6\3\0B\2\4\2\18\4\2\0009\2\1\2'\5\4\0'\6\0\0B\2\4\2\18\4\2\0009\2\5\2B\2\2\2\18\1\2\0X\2\16€)\2\1\0)\3\4\0+\4\0\0X\5\n€\18\6\1\0006\a\6\0009\a\a\a6\t\b\0009\t\t\t)\vA\0)\fZ\0B\t\3\0A\a\0\2&\1\a\6E\5\3\2R\5ô\127L\1\2\0\vrandom\tmath\tchar\vstring\nlower\18[^A-Za-z0-9-]\6_\6 \tgsub\5@\0\1\4\0\4\0\a6\1\0\0009\1\1\0019\1\2\0015\3\3\0>\0\2\3B\1\2\1K\0\1\0\1\2\0\0\rxdg-open\rjobstart\afn\bvimŒ\1\0\0\3\0\6\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0B\0\1\2\15\0\0\0X\1\3€'\0\4\0L\0\2\0X\0\2€'\0\5\0L\0\2\0K\0\1\0\agd <cmd>ObsidianFollowLink<CR>\28cursor_on_markdown_link\tutil\robsidian\frequire«\2\1\0\5\0\18\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0023\3\6\0=\3\a\0023\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\0016\0\f\0009\0\r\0009\0\14\0'\2\15\0'\3\16\0003\4\17\0B\0\4\1K\0\1\0\0\agd\6n\bset\vkeymap\bvim\14templates\1\0\3\16time_format\n%H:%M\16date_format\16%a-%m-%d-%Y\vsubdir\14Templates\20follow_url_func\0\17note_id_func\0\15completion\1\0\1\rnvim_cmp\2\1\0\2\bdir\f~/brain\21use_advanced_uri\2\nsetup\robsidian\frequire\0" },
     loaded = true,
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
     url = "https://github.com/epwalsh/obsidian.nvim"
@@ -355,8 +361,12 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: obsidian.nvim
 time([[Config for obsidian.nvim]], true)
-try_loadstring("\27LJ\2\nÉ\1\0\1\r\0\n\0#'\1\0\0\n\0\0\0X\2\15€\18\4\0\0009\2\1\0'\5\2\0'\6\3\0B\2\4\2\18\4\2\0009\2\1\2'\5\4\0'\6\0\0B\2\4\2\18\4\2\0009\2\5\2B\2\2\2\18\1\2\0X\2\16€)\2\1\0)\3\4\0+\4\0\0X\5\n€\18\6\1\0006\a\6\0009\a\a\a6\t\b\0009\t\t\t)\vA\0)\fZ\0B\t\3\0A\a\0\2&\1\a\6E\5\3\2R\5ô\127L\1\2\0\vrandom\tmath\tchar\vstring\nlower\18[^A-Za-z0-9-]\6_\6 \tgsub\5á\1\1\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0023\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14templates\1\0\3\vsubdir\14Templates\16time_format\n%H:%M\16date_format\16%a-%m-%d-%Y\17note_id_func\0\15completion\1\0\1\rnvim_cmp\2\1\0\2\bdir\f~/brain\21use_advanced_uri\2\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
+try_loadstring("\27LJ\2\nÉ\1\0\1\r\0\n\0#'\1\0\0\n\0\0\0X\2\15€\18\4\0\0009\2\1\0'\5\2\0'\6\3\0B\2\4\2\18\4\2\0009\2\1\2'\5\4\0'\6\0\0B\2\4\2\18\4\2\0009\2\5\2B\2\2\2\18\1\2\0X\2\16€)\2\1\0)\3\4\0+\4\0\0X\5\n€\18\6\1\0006\a\6\0009\a\a\a6\t\b\0009\t\t\t)\vA\0)\fZ\0B\t\3\0A\a\0\2&\1\a\6E\5\3\2R\5ô\127L\1\2\0\vrandom\tmath\tchar\vstring\nlower\18[^A-Za-z0-9-]\6_\6 \tgsub\5@\0\1\4\0\4\0\a6\1\0\0009\1\1\0019\1\2\0015\3\3\0>\0\2\3B\1\2\1K\0\1\0\1\2\0\0\rxdg-open\rjobstart\afn\bvimŒ\1\0\0\3\0\6\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0B\0\1\2\15\0\0\0X\1\3€'\0\4\0L\0\2\0X\0\2€'\0\5\0L\0\2\0K\0\1\0\agd <cmd>ObsidianFollowLink<CR>\28cursor_on_markdown_link\tutil\robsidian\frequire«\2\1\0\5\0\18\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0023\3\6\0=\3\a\0023\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\0016\0\f\0009\0\r\0009\0\14\0'\2\15\0'\3\16\0003\4\17\0B\0\4\1K\0\1\0\0\agd\6n\bset\vkeymap\bvim\14templates\1\0\3\16time_format\n%H:%M\16date_format\16%a-%m-%d-%Y\vsubdir\14Templates\20follow_url_func\0\17note_id_func\0\15completion\1\0\1\rnvim_cmp\2\1\0\2\bdir\f~/brain\21use_advanced_uri\2\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
 time([[Config for obsidian.nvim]], false)
+-- Config for: neorg
+time([[Config for neorg]], true)
+try_loadstring("\27LJ\2\n§\3\0\0\a\0\22\0\0316\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\20\0005\3\3\0004\4\0\0=\4\4\0035\4\6\0005\5\5\0=\5\a\4=\4\b\0035\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\a\4=\4\r\0034\4\0\0=\4\14\0034\4\0\0=\4\15\0034\4\0\0=\4\16\0035\4\18\0005\5\17\0=\5\a\4=\4\19\3=\3\21\2B\0\2\1K\0\1\0\tload\1\0\0\20core.completion\1\0\0\1\0\2\vengine\rnvim-cmp\tname\f[Neorg]\15core.itero\25core.export.markdown\16core.export\16core.dirman\1\0\0\15workspaces\1\0\2\nindex\15index.norg\22default_workspace\16neorg_brain\1\0\1\16neorg_brain\18~/neorg-brain\19core.concealer\vconfig\1\0\0\1\0\1\16icon_preset\vvaried\18core.defaults\1\0\0\nsetup\nneorg\frequire\0", "config", "neorg")
+time([[Config for neorg]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -16,6 +16,7 @@ require("icons-config")
 -- NOTE: Features
 -- require("venn-config")            -- Diagrams
 require("alpha-config")           -- Dashboard
+-- require("dashboard-nvim-config")  -- Another Dashboard
 require("project-config")         -- Project Finder
 require("bufferline-config")      -- Buffer line
 require("toggleterm-config")      -- Floating Terminal

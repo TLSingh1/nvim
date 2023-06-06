@@ -168,30 +168,53 @@ packer.startup({
       requires = "nvim-lua/plenary.nvim",
     })
 
-    -- NOTE: Neorg
     -- use {
     --   "nvim-neorg/neorg",
-    --   config = function()
-    --     require('neorg').setup {
-    --       load = {
-    --         ["core.defaults"] = {},
-    --         ["core.concealer"] = {},
-    --         ["core.dirman"] = {
-    --           config = {
-    --             workspaces = {
-    --               wiki = "~/wiki",
-    --               notes = "~/notes",
-    --             },
-    --             default_workspace = "notes",
-    --           },
-    --         },
-    --       }
+    --   -- run = ":Neorg sync-parsers",
+    --   config = function ()
+    --     require("neorg").setup {
+    --
     --     }
-    --   end,
-    --   run = ":Neorg sync-parsers",
-    --   requires = "nvim-lua/plenary.nvim",
-    --   tag = "*",
+    --   end
     -- }
+
+    -- NOTE: Neorg
+    use {
+      "nvim-neorg/neorg",
+      config = function()
+        require('neorg').setup {
+          load = {
+            ["core.defaults"] = {},
+            ["core.concealer"] = {
+              config = {
+                icon_preset = "varied"
+              }
+            },
+            ["core.dirman"] = {
+              config = {
+                workspaces = {
+                  neorg_brain = "~/neorg-brain",
+                },
+                index = "index.norg",
+                default_workspace = "neorg_brain",
+              }
+            },
+            ["core.export"] = {},
+            ["core.export.markdown"] = {},
+            ["core.itero"] = {},
+            ["core.completion"] = {
+              config = {
+                engine = "nvim-cmp",
+                name = "[Neorg]"
+              }
+            },
+          }
+        }
+      end,
+      run = ":Neorg sync-parsers",
+      requires = "nvim-lua/plenary.nvim",
+      tag = "*",
+    }
   end,
   config = {
     display = {

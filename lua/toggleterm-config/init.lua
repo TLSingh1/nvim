@@ -7,6 +7,7 @@ require("toggleterm").setup({
   open_mapping = [[<M-;>]],
   direction = "float",
   on_open = setup_toggleterm_highlight,
+  shell = "fish",
   float_opts = {
     border = 'curved',
     winblend = 0,

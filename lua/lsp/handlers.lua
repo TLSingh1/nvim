@@ -19,6 +19,10 @@ M.setup = function()
 vim.diagnostic.config({
   underline = true,
   virtual_text = true,
+  virtual_lines = {
+      only_current_line = true,
+      highlight_whole_line = false,
+    },
   signs = true,
   update_in_insert = false,
 })

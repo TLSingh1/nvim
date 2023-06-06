@@ -18,6 +18,9 @@ api.nvim_create_autocmd("ColorScheme", {
     -- Cursor Line
     vim.cmd("hi CursorLine guibg=#162e35")
 
+    -- Folds
+    vim.cmd("hi Folded guibg=#162e35 guifg=#1affff")
+
     -- Normal Float
     vim.cmd("hi NormalFloat guifg=#1affff guibg=#000000")
     -- Float Border
@@ -136,6 +139,7 @@ local options = {
   breakindentopt = "shift:2,min:40,sbr",
   virtualedit = "all",
   winhighlight = "Normal:ActiveWindow,NormalNC:InactiveWindow",
+  foldlevelstart = 99,
 }
 
 vim.opt.shortmess:append("c")

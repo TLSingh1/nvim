@@ -1,7 +1,7 @@
 require("neo-tree").setup({
   popup_border_style = "rounded",
 	add_blank_line_at_top = true,
-	hide_root_node = true,
+	hide_root_node = false,
 	retain_hidden_root_indent = true,
 	enable_git_status = true,
 	enable_diagnostics = true,
