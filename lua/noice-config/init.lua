@@ -18,6 +18,13 @@ require("noice").setup({
     },
     {
       filter = {
+        error = true,
+        find = "tailwindcss",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
         find = "diagnostics_on_open",
       },
       opts = { skip = true },

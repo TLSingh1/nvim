@@ -37,6 +37,7 @@ keymap("n", "<leader>z", "za", opts)
 keymap("n", "f", ":HopWord <CR>", opts)
 keymap("n", "F", ":HopLine <CR>", opts)
 keymap("n", "<C-f>", ":HopChar1 <CR>", opts)
+keymap("v", "f", "<cmd>HopLine <CR>", opts)
 
 -- Resize with Smart Splits
 keymap("n", "<C-h>", ":SmartResizeLeft <CR>", { silent = true })
@@ -93,10 +94,10 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- File Tree
--- keymap("n", "z", ":NvimTreeToggle<CR>", opts)
-
--- NOTE: UNCOMMENT BELOW
 keymap("n", "z", ":NeoTreeFocusToggle<CR>", opts)
+
+-- Neorg
+--
 
 -- Symbols / Code Outline
 keymap("n", ";", ":Navbuddy <CR>", opts)

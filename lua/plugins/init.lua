@@ -5,8 +5,12 @@ end
 
 packer.startup({
   function()
+
     -- NOTE: Base Plugins
     use("wbthomason/packer.nvim") -- Plugin Manager
+
+    -- NOTE: My Plugins
+    use({ "/home/tai/Code/side-projects/first-plugin.nvim" })
 
     -- NOTE: Core Plugins
     use({ "hrsh7th/nvim-cmp" })              -- Completion Plugin
@@ -39,6 +43,10 @@ packer.startup({
     use({ "MunifTanjim/nui.nvim" })  -- UI elements
 
     -- NOTE: Features
+    use({
+      "Bryley/neoai.nvim",
+      require = { "MunifTanjim/nui.nvim" }
+    })
     use({ "jbyuki/venn.nvim" }) -- Diagrams
     use({
       -- Navic
@@ -158,6 +166,7 @@ packer.startup({
     use({ "lewis6991/gitsigns.nvim", tag = "release" }) -- Git Signs
     use({ "ggandor/leap.nvim" })                      -- Leap
     use({ "phaazon/hop.nvim", branch = "v2" })        -- Better Navigation
+    use({ "rlane/pounce.nvim" })                      -- Better (better?) Navigation
     use({ "mrjones2014/smart-splits.nvim" })          -- Smart Splits
     use({ "numToStr/Comment.nvim" })                  -- Better Comments
     use("JoosepAlviste/nvim-ts-context-commentstring") -- TSX/JSX/HTML Comments
@@ -168,16 +177,6 @@ packer.startup({
       requires = "nvim-lua/plenary.nvim",
     })
 
-    -- use {
-    --   "nvim-neorg/neorg",
-    --   -- run = ":Neorg sync-parsers",
-    --   config = function ()
-    --     require("neorg").setup {
-    --
-    --     }
-    --   end
-    -- }
-
     -- NOTE: Neorg
     use {
       "nvim-neorg/neorg",
@@ -185,6 +184,26 @@ packer.startup({
         require('neorg').setup {
           load = {
             ["core.defaults"] = {},
+            ["core.itero"] = {},
+            ["core.keybinds"] = {
+              config = {
+                hook = function (keybinds)
+                  keybinds.unmap("norg", "n", "<LocalLeader>li")
+                  keybinds.remap_key("norg", "n", "<LocalLeader>lt", "<LocalLeader>nL")
+                  keybinds.remap_key("norg", "i", "<M-CR>", "<S-CR>")
+                end,
+              }
+            },
+            ["core.esupports.metagen"] = {
+              config = {
+                type = "auto",
+              }
+            },
+            ["core.presenter"] = {
+              config = {
+                zen_mode = "truezen"
+              }
+            },
             ["core.concealer"] = {
               config = {
                 icon_preset = "varied"
@@ -199,9 +218,12 @@ packer.startup({
                 default_workspace = "neorg_brain",
               }
             },
-            ["core.export"] = {},
+            ["core.export"] = {
+              config = {
+                export_dir = "~/test"
+              }
+            },
             ["core.export.markdown"] = {},
-            ["core.itero"] = {},
             ["core.completion"] = {
               config = {
                 engine = "nvim-cmp",

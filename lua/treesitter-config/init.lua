@@ -27,3 +27,5 @@ configs.setup({
   --   -- termcolors = {} -- table of colour name strings
   -- }
 })
+
+vim.treesitter.language.register('markdown', 'neoai-output')
