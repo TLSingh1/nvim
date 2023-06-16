@@ -31,7 +31,9 @@ keymap("n", "<leader>l", "<C-w>l", opts)
 
 keymap("n", "<leader>z", "za", opts)
 
-
+-- Spell
+keymap("n", "<leader>ns", ":set nospell <CR>", { silent = true })
+keymap("n", "<leader>nS", ":set spell <CR>", { silent = true })
 
 -- Hop
 keymap("n", "f", ":HopWord <CR>", opts)
@@ -94,10 +96,12 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- File Tree
-keymap("n", "z", ":NeoTreeFocusToggle<CR>", opts)
+keymap("n", "z", ":RnvimrToggle <CR>", opts)
+keymap("n", "Z", ":NeoTreeFocusToggle<CR>", opts)
 
--- Neorg
---
+-- NeoAI
+keymap("n", "<leader>e", ":NeoAIToggle <CR>", opts)
+keymap("v", "<leader>e", ":NeoAIContext <CR>", opts)
 
 -- Symbols / Code Outline
 keymap("n", ";", ":Navbuddy <CR>", opts)

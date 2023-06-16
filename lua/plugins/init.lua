@@ -10,7 +10,7 @@ packer.startup({
     use("wbthomason/packer.nvim") -- Plugin Manager
 
     -- NOTE: My Plugins
-    use({ "/home/tai/Code/side-projects/first-plugin.nvim" })
+    -- use({ "/home/tai/Code/side-projects/first-plugin.nvim" })
 
     -- NOTE: Core Plugins
     use({ "hrsh7th/nvim-cmp" })              -- Completion Plugin
@@ -43,6 +43,7 @@ packer.startup({
     use({ "MunifTanjim/nui.nvim" })  -- UI elements
 
     -- NOTE: Features
+    use({ "kevinhwang91/rnvimr" }) -- Ranger
     use({
       "Bryley/neoai.nvim",
       require = { "MunifTanjim/nui.nvim" }

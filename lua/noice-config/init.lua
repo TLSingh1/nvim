@@ -12,6 +12,13 @@ require("noice").setup({
     {
       filter = {
         error = true,
+        find = "assertion",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        error = true,
         find = "change",
       },
       opts = { skip = true },
@@ -34,6 +41,30 @@ require("noice").setup({
         find = "diagnostics",
       },
       opts = { skip = true },
+    },
+    {
+      view = "mini",
+      filter = {
+        find = "written",
+      }
+    },
+    {
+      view = "mini",
+      filter = {
+        find = "yanked",
+      }
+    },
+    {
+      view = "mini",
+      filter = {
+        find = "change",
+      }
+    },
+    {
+      view = "mini",
+      filter = {
+        find = "lines",
+      }
     },
     {
       view = "notify",
