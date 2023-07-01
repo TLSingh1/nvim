@@ -1,6 +1,5 @@
 local api = vim.api
 
-
 -- vim.api.nvim_create_augroup("startRanger", { clear = true })
 -- vim.api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
 -- 	group = "startRanger",
@@ -17,15 +16,15 @@ local api = vim.api
 -- 	end,
 -- })
 
-api.nvim_create_augroup("toggleNorgHighlights", { clear = true })
-api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
-	group = "toggleNorgHighlights",
-	pattern = { "*.norg" },
-	callback = function()
-		vim.cmd([[highlight LineNrAbove guifg=#011826]])
-		vim.cmd([[highlight LineNrBelow guifg=#011826]])
-	end,
-})
+-- api.nvim_create_augroup("setWrapMargin", { clear = true })
+-- api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
+-- 	group = "setWrapMargin",
+-- 	-- pattern = { "*.norg" },
+-- 	callback = function()
+-- 		vim.cmd([[set textwidth=78]])
+--     vim.cmd([[set wrapmargin=10]])
+-- 	end,
+-- })
 
 api.nvim_create_autocmd("ColorScheme", {
 	callback = vim.schedule_wrap(function()
@@ -41,6 +40,10 @@ api.nvim_create_autocmd("ColorScheme", {
 		-- Active/Inactive winbar
 		vim.cmd("hi WinBar guibg=#011826")
 		vim.cmd("hi WinBarNC guibg=#000000")
+
+		-- Line Number
+		vim.cmd([[highlight LineNrAbove guifg=#011826]])
+		vim.cmd([[highlight LineNrBelow guifg=#011826]])
 
 		-- Rnvimr
 		vim.cmd("hi RnvimrCurses guifg=#4d7277 guibg=#011826")
@@ -91,8 +94,8 @@ api.nvim_create_autocmd("ColorScheme", {
 		vim.cmd("hi WilderSelected guifg=#1affff guibg=#244C58")
 
 		-- Harpoon Menu
-		vim.cmd("hi HarpoonBorder guifg=#1affff guibg=#011826")
-		vim.cmd("hi HarpoonWindow guibg=#011826")
+		-- vim.cmd("hi HarpoonBorder guifg=#1affff guibg=#011826")
+		-- vim.cmd("hi HarpoonWindow guibg=#011826")
 
 		-- General UI
 		vim.cmd("hi EndOfBuffer guifg=#011826")
@@ -128,12 +131,93 @@ vim.api.nvim_exec(
 --   augroup END
 -- ]])
 
+function InsertFooterTemplate()
+	local template_path = vim.fn.expand("~/Neo-Brain/100 Templates/Footer Template.norg")
+	local current_line = vim.fn.line(".")
+	vim.cmd(current_line .. "read " .. template_path)
+
+	-- Get the directory of the current file
+	local current_file = vim.fn.expand("%:p")
+	local current_directory = vim.fn.fnamemodify(current_file, ":h")
+
+	-- Find the index file in the current directory
+	local current_index_file = vim.fn.glob(current_directory .. "/*Index*")
+	if not (type(current_index_file) == "string" and current_index_file == "") then
+		local current_index_filename = vim.fn.fnamemodify(current_index_file, ":t:r")
+		local current_index_relative_path = "./" .. vim.fn.fnamemodify(current_index_file, ":~:.:t:r")
+
+		-- Append the string in the format "- [<filename>]{:<path-to-file>:}"
+		vim.cmd("normal! Go- [" .. current_index_filename .. "]{:" .. current_index_relative_path .. ":}")
+	end
+end
+
+vim.cmd("command! -nargs=0 InsertFooterTemplate lua InsertFooterTemplate()")
+
+function InsertIndexTemplate()
+	local template_path = vim.fn.expand("~/Neo-Brain/100 Templates/Index Template.norg")
+	local current_line = vim.fn.line(".")
+	vim.cmd(current_line .. "read " .. template_path)
+
+	-- Get the directory of the current file
+	local current_file = vim.fn.expand("%:p")
+	local current_directory = vim.fn.fnamemodify(current_file, ":h")
+
+	-- Get the parent directory
+	local parent_directory = vim.fn.fnamemodify(current_directory, ":h")
+
+	-- Find the index file in the parent directory
+	local parent_index_file = vim.fn.glob(parent_directory .. "/*Index*")
+	if not (type(parent_index_file) == "string" and parent_index_file == "") then
+		local parent_index_filename = vim.fn.fnamemodify(parent_index_file, ":t:r")
+		local parent_index_relative_path = "../" .. vim.fn.fnamemodify(parent_index_file, ":~:.:t:r")
+
+		-- Append the string in the format "- [<filename>]{:<path-to-file>:}"
+		vim.cmd("normal! Go- [" .. parent_index_filename .. "]{:" .. parent_index_relative_path .. ":}")
+	end
+end
+
+vim.cmd("command! -nargs=0 InsertIndexTemplate lua InsertIndexTemplate()")
+
+function InsertLitTemplate()
+	local template_path = vim.fn.expand("~/Neo-Brain/100 Templates/Lit Template.norg")
+	local current_line = vim.fn.line(".")
+	vim.cmd(current_line .. "read " .. template_path)
+
+	-- Get the directory of the current file
+	local current_file = vim.fn.expand("%:p")
+	local current_directory = vim.fn.fnamemodify(current_file, ":h")
+
+	-- Get the parent directory
+	local parent_directory = vim.fn.fnamemodify(current_directory, ":h")
+
+	-- Find the index file in the parent directory
+	local parent_index_file = vim.fn.glob(parent_directory .. "/*Index*")
+	if not (type(parent_index_file) == "string" and parent_index_file == "") then
+		local parent_index_filename = vim.fn.fnamemodify(parent_index_file, ":t:r")
+		local parent_index_relative_path = "../" .. vim.fn.fnamemodify(parent_index_file, ":~:.:t:r")
+
+		-- Append the string in the format "- [<filename>]{:<path-to-file>:}"
+		vim.cmd("normal! Go- [" .. parent_index_filename .. "]{:" .. parent_index_relative_path .. ":}")
+	end
+end
+
+vim.cmd("command! -nargs=0 InsertLitTemplate lua InsertLitTemplate()")
+
+-- function InsertFooterTemplate()
+--   local template_path = vim.fn.expand("~/Neo-Brain/100 Templates/Footer Template.norg")
+--   local current_line = vim.fn.line('.')
+--   vim.cmd(current_line .. "read " .. template_path)
+-- end
+--
+-- vim.cmd("command! -nargs=0 InsertFooterTemplate lua InsertFooterTemplate()")
+
 local options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-	conceallevel = 2,
+	-- FIX: Change back to 2
+	conceallevel = 3,
 	fileencoding = "utf-8", -- the encoding written to a file
 	hlsearch = false, -- highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
@@ -161,20 +245,23 @@ local options = {
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = true, -- display lines as one long line
 	-- NOTE: Uncomment
-	-- scrolloff = 8,                           -- is one of my fav
-	scrolloff = 99, -- is one of my fav
+	scrolloff = 8, -- is one of my fav
+	-- scrolloff = 99, -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
 	spell = true,
 	spellsuggest = "10",
-  -- NOTE: PART 2: Change back to 0 when creating plugin
+	-- NOTE: PART 2: Change back to 0 when creating plugin
 	laststatus = 3,
 	breakindent = true,
-	breakindentopt = "shift:2,min:40,sbr",
-	virtualedit = "all",
+	-- NOTE: This indents wrapped lines
+	-- breakindentopt = "shift:2,min:40,sbr",
+	-- virtualedit = "all",
 	winhighlight = "Normal:ActiveWindow,NormalNC:InactiveWindow",
 	foldlevelstart = 99,
-	fillchars = { eob = " " },
+	linebreak = true,
+	textwidth = 60,
+	-- wrapmargin = 6,
 }
 
 vim.opt.shortmess:append("c")

@@ -7,6 +7,7 @@ local servers = {
 	"tsserver",
 	"cssls",
 	"html",
+	"svelte",
 	"tailwindcss",
 	"gopls",
 	"golangci_lint_ls",

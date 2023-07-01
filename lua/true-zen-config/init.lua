@@ -43,7 +43,7 @@ require("true-zen").setup({
 				relativenumber = false,
 				showtabline = 0,
 				signcolumn = "no",
-				statusline = "",
+				statusline = "%#Normal#",
 				cmdheight = 1,
 				laststatus = 0,
 				showcmd = false,
@@ -88,7 +88,7 @@ require("true-zen").setup({
 		tmux = false, -- hide tmux status bar in (minimalist, ataraxis)
 		kitty = {
 			-- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
-			enabled = false,
+			enabled = true,
 			font = "+3",
 		},
 		twilight = false, -- enable twilight (ataraxis)

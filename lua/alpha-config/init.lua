@@ -64,7 +64,7 @@ dashboard.section.header.val = {
   }
 
 dashboard.section.buttons.val = {
-	dashboard.button("n", "☢️  Neo-Brain", ":e /home/tai/neorg-brain/index.norg <CR>"),
+	dashboard.button("n", "☢️  Neo-Brain", ":e /home/tai/Neo-Brain/index.norg <CR>"),
 	dashboard.button("b", "🧠 Brain", ":e /home/tai/brain/brain (Index).md <CR>"),
 	--[[ dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"), ]]
 	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),

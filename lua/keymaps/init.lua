@@ -40,6 +40,7 @@ keymap("n", "f", ":HopWord <CR>", opts)
 keymap("n", "F", ":HopLine <CR>", opts)
 keymap("n", "<C-f>", ":HopChar1 <CR>", opts)
 keymap("v", "f", "<cmd>HopLine <CR>", opts)
+keymap("v", "F", "<cmd>HopWord <CR>", opts)
 
 -- Resize with Smart Splits
 keymap("n", "<C-h>", ":SmartResizeLeft <CR>", { silent = true })
@@ -50,7 +51,29 @@ keymap("n", "<C-k>", ":SmartResizeUp <CR>", { silent = true })
 -- Better formatting
 keymap("n", "<leader>a", ":Format<CR>", opts)
 
+-- Toggle Bufferline
+local function toggle_bufferline()
+  if vim.o.showtabline == 2 then
+    vim.o.showtabline = 0
+  elseif vim.o.showtabline == 0 then
+    vim.o.showtabline = 2
+  end
+end
+
+vim.keymap.set("n", "<leader>b", function()
+  toggle_bufferline()
+end)
+
 -- Zen Mode
+
+-- api.nvim_create_augroup("toggleZen", { clear = true })
+-- api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
+-- 	group = "toggleZen",
+-- 	callback = function()
+-- 		vim.cmd([[highlight WinBar guibg=#011826]])
+-- 	end,
+-- })
+
 keymap("n", "<leader>m", ":TZAtaraxis <CR>", opts)
 
 -- Better splitting
@@ -96,8 +119,8 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- File Tree
-keymap("n", "z", ":RnvimrToggle <CR>", opts)
-keymap("n", "Z", ":NeoTreeFocusToggle<CR>", opts)
+keymap("n", "z", ":NeoTreeFocusToggle<CR>", opts)
+keymap("n", "Z", ":RnvimrToggle <CR>", opts)
 
 -- NeoAI
 keymap("n", "<leader>e", ":NeoAIToggle <CR>", opts)
@@ -149,8 +172,13 @@ keymap("n", "<leader>u", ":Telescope current_buffer_fuzzy_find <CR>", opts)
 keymap("n", "<leader>i", ":Telescope diagnostics <CR>", opts)
 keymap("n", "<leader>o", ":TodoTelescope  <cr>", opts)
 
--- Obsidian
-keymap("n", "<leader>ot", ":ObsidianTemplate <cr>", opts)
+-- MdEval
+keymap("n", "<leader>me", ":MdEval <cr>", opts)
+keymap("n", "<leader>mc", ":MdEvalClean <cr>", opts)
+
+-- Neorg
+keymap("n", "<leader>nt", ":Neorg mode traverse-heading <cr>", opts)
+keymap("n", "<leader>nT", ":Neorg mode norg <cr>", opts)
 
 -- Incremental Rename
 keymap("n", "<leader>r", ":IncRename ", opts)
@@ -161,11 +189,11 @@ keymap("n", "<leader>K", ':lua require("lsp_lines").toggle()<CR>', opts)
 -- Harpoon
 -- keymap('n', '<leader>e', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 -- keymap('n', '<leader>r', '<cmd>lua require("harpoon.mark").add_file()<CR>', opts)
-keymap("n", "<leader><leader>a", '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', opts)
-keymap("n", "<leader><leader>s", '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', opts)
-keymap("n", "<leader><leader>d", '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', opts)
-keymap("n", "<leader><leader>f", '<cmd>lua require("harpoon.ui").nav_file(4)<CR>', opts)
-keymap("n", "<leader><leader>g", '<cmd>lua require("harpoon.ui").nav_file(5)<CR>', opts)
+-- keymap("n", "<leader><leader>a", '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', opts)
+-- keymap("n", "<leader><leader>s", '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', opts)
+-- keymap("n", "<leader><leader>d", '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', opts)
+-- keymap("n", "<leader><leader>f", '<cmd>lua require("harpoon.ui").nav_file(4)<CR>', opts)
+-- keymap("n", "<leader><leader>g", '<cmd>lua require("harpoon.ui").nav_file(5)<CR>', opts)
 
 -- keymap("n", "<leader>v", ":Telescope spell_check <CR>", opts)
 

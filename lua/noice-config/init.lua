@@ -42,10 +42,28 @@ require("noice").setup({
       },
       opts = { skip = true },
     },
+    -- {
+    --   filter = {
+    --     find = "line",
+    --   },
+    --   opts = { skip = true },
+    -- },
     {
       view = "mini",
       filter = {
         find = "written",
+      }
+    },
+    {
+      view = "mini",
+      filter = {
+        find = "before",
+      }
+    },
+    {
+      view = "mini",
+      filter = {
+        find = "after",
       }
     },
     {
