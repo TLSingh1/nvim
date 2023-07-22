@@ -38,15 +38,29 @@ packer.startup({
 		})
 
 		-- NOTE: Plugin SDKs
+    -- use({ "3rd/image.nvim" })   -- Image Viewer
+		-- use({
+		-- 	"edluffy/hologram.nvim",
+  --     config = function()
+  --       require("hologram").setup()
+  --     end,
+  --     rocks = { "magick" }
+		-- })
 		use("nvim-lua/plenary.nvim")
 		use("nvim-tree/nvim-web-devicons") -- Icons
 		use({ "MunifTanjim/nui.nvim" }) -- UI elements
 
 		-- NOTE: Features
+    use({ 'gorbit99/codewindow.nvim' }) -- Code Window / minimap
+    -- use({ "echasnovski/mini.map" }) -- Code Window / minimap
     use({
-      "rest-nvim/rest.nvim",
-      requires = { "nvim-lua/plenary.nvim" }
+      'kevinhwang91/nvim-ufo',
+      requires = 'kevinhwang91/promise-async'
     })
+		use({
+			"rest-nvim/rest.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
+		})
 		use({ "kevinhwang91/rnvimr" }) -- Ranger
 		use({ "jubnzv/mdeval.nvim" }) -- Markdown Eval
 		use({
@@ -213,11 +227,11 @@ packer.startup({
 							config = {
 								icon_preset = "varied",
 								icons = {
-                  delimiter = {
-                    horizontal_line = {
-                      highlight = "@neorg.delimiters.horizontal_line",
-                    }
-                  },
+									delimiter = {
+										horizontal_line = {
+											highlight = "@neorg.delimiters.horizontal_line",
+										},
+									},
 									code_block = {
 										-- If true will only dim the content of the code block (without the
 										-- `@code` and `@end` lines), not the entirety of the code block itself.

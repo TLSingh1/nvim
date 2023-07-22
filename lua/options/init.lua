@@ -32,6 +32,7 @@ api.nvim_create_autocmd("ColorScheme", {
 		vim.cmd([[highlight IndentBlanklineIndent2 guifg=#2c396b gui=nocombine]])
 		vim.cmd([[highlight IndentBlanklineIndent3 guifg=#3b6161 gui=nocombine]])
 		vim.cmd([[highlight IndentBlanklineIndent4 guifg=#595846 gui=nocombine]])
+		vim.cmd([[highlight IndentBlanklineContextStart guisp=#FCA7EA]])
 
 		-- Active/Inactive windows
 		vim.cmd("highlight ActiveWindow guibg=#011826")
@@ -53,6 +54,9 @@ api.nvim_create_autocmd("ColorScheme", {
 
 		-- Folds
 		vim.cmd("hi Folded guibg=#162e35 guifg=#1affff")
+
+    -- FoldColumn
+		vim.cmd("hi FoldColumn guifg=#011826")
 
 		-- Normal Float
 		vim.cmd("hi NormalFloat guifg=#1affff guibg=#000000")
@@ -115,7 +119,7 @@ vim.api.nvim_exec(
 	[[
   augroup NoSpell
     autocmd!
-    autocmd FileType Outline setlocal nospell
+    autocmd FileType norg setlocal nospell
   augroup END
 ]],
 	false
@@ -249,7 +253,7 @@ local options = {
 	-- scrolloff = 99, -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
-	spell = true,
+	spell = false,
 	spellsuggest = "10",
 	-- NOTE: PART 2: Change back to 0 when creating plugin
 	laststatus = 3,
@@ -258,7 +262,13 @@ local options = {
 	-- breakindentopt = "shift:2,min:40,sbr",
 	-- virtualedit = "all",
 	winhighlight = "Normal:ActiveWindow,NormalNC:InactiveWindow",
+
+	foldcolumn = "1",
+	foldlevel = 99, -- Using ufo provider need a large value, feel free to decrease the value
+	foldenable = true,
 	foldlevelstart = 99,
+  fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+
 	linebreak = true,
 	textwidth = 60,
 	-- wrapmargin = 6,

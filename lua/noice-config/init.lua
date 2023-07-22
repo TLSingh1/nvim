@@ -3,9 +3,23 @@ vim.notify = require("notify")
 require("noice").setup({
   routes = {
     {
+      view = "mini",
+      filter = {
+        error = true,
+        find = "Error",
+      }
+    },
+    {
       filter = {
         error = true,
         find = "written",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        error = true,
+        find = "toc",
       },
       opts = { skip = true },
     },

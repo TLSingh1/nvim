@@ -53,7 +53,7 @@ local WinBar = {
 
 heirline.setup({
 	statusline = StatusLine,
-	winbar = WinBar,
+	-- winbar = WinBar,
 	opts = {
 		disable_winbar_cb = function(args)
 			return conditions.buffer_matches({

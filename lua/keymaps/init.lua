@@ -53,15 +53,15 @@ keymap("n", "<leader>a", ":Format<CR>", opts)
 
 -- Toggle Bufferline
 local function toggle_bufferline()
-  if vim.o.showtabline == 2 then
-    vim.o.showtabline = 0
-  elseif vim.o.showtabline == 0 then
-    vim.o.showtabline = 2
-  end
+	if vim.o.showtabline == 2 then
+		vim.o.showtabline = 0
+	elseif vim.o.showtabline == 0 then
+		vim.o.showtabline = 2
+	end
 end
 
 vim.keymap.set("n", "<leader>b", function()
-  toggle_bufferline()
+	toggle_bufferline()
 end)
 
 -- Zen Mode
@@ -74,7 +74,7 @@ end)
 -- 	end,
 -- })
 
-keymap("n", "<leader>m", ":TZAtaraxis <CR>", opts)
+-- keymap("n", "<leader>m", ":TZAtaraxis <CR>", opts)
 
 -- Better splitting
 keymap("n", "<leader>d", ":vs <CR>", opts)
@@ -83,35 +83,34 @@ keymap("n", "<leader>c", ":q <cr>", opts)
 keymap("n", "<c-n>", ":bdelete <cr>", opts)
 
 -- Swap buffers
-local smart_splits = require("smart-splits")
 
 local function swap_and_move(key)
-  if key == "<leader><leader>h" then
-    smart_splits.swap_buf_left()
-    smart_splits.move_cursor_left()
-  elseif key == "<leader><leader>l" then
-    smart_splits.swap_buf_right()
-    smart_splits.move_cursor_right()
-  elseif key == "<leader><leader>k" then
-    smart_splits.swap_buf_up()
-    smart_splits.move_cursor_up()
-  elseif key == "<leader><leader>j" then
-    smart_splits.swap_buf_down()
-    smart_splits.move_cursor_down()
-  end
+	if key == "<leader><leader>h" then
+		smart_splits.swap_buf_left()
+		smart_splits.move_cursor_left()
+	elseif key == "<leader><leader>l" then
+		smart_splits.swap_buf_right()
+		smart_splits.move_cursor_right()
+	elseif key == "<leader><leader>k" then
+		smart_splits.swap_buf_up()
+		smart_splits.move_cursor_up()
+	elseif key == "<leader><leader>j" then
+		smart_splits.swap_buf_down()
+		smart_splits.move_cursor_down()
+	end
 end
 
 vim.keymap.set("n", "<leader><leader>h", function()
-  swap_and_move("<leader><leader>h")
+	swap_and_move("<leader><leader>h")
 end)
 vim.keymap.set("n", "<leader><leader>l", function()
-  swap_and_move("<leader><leader>l")
+	swap_and_move("<leader><leader>l")
 end)
 vim.keymap.set("n", "<leader><leader>k", function()
-  swap_and_move("<leader><leader>k")
+	swap_and_move("<leader><leader>k")
 end)
 vim.keymap.set("n", "<leader><leader>j", function()
-  swap_and_move("<leader><leader>j")
+	swap_and_move("<leader><leader>j")
 end)
 
 -- Navigate buffers
@@ -162,10 +161,10 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope --
 keymap(
-  "n",
-  "<leader>f",
-  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
-  opts
+	"n",
+	"<leader>f",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
+	opts
 )
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>u", ":Telescope current_buffer_fuzzy_find <CR>", opts)
@@ -176,7 +175,21 @@ keymap("n", "<leader>o", ":TodoTelescope  <cr>", opts)
 keymap("n", "<leader>me", ":MdEval <cr>", opts)
 keymap("n", "<leader>mc", ":MdEvalClean <cr>", opts)
 
+
+keymap("n", "<leader>l", "<C-w>l", opts)
+
+function ToggleToc()
+	if vim.bo.filetype == "norg" then
+		vim.cmd("Neorg toc left")
+    local current_win = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_width(current_win, 27)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>l", true, true, true), "n", true)
+	end
+end
+
+
 -- Neorg
+keymap("n", "<leader>;", ":lua ToggleToc()<CR>", { noremap = true, silent = true })
 keymap("n", "<leader>nt", ":Neorg mode traverse-heading <cr>", opts)
 keymap("n", "<leader>nT", ":Neorg mode norg <cr>", opts)
 
@@ -205,22 +218,22 @@ keymap("n", "<leader>p", "z=", opts)
 -- Venn
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
-  local venn_enabled = vim.inspect(vim.b.venn_enabled)
-  if venn_enabled == "nil" then
-    vim.b.venn_enabled = true
-    vim.cmd([[setlocal ve=all]])
-    -- draw a line on HJKL keystokes
-    vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
-    -- draw a box by pressing "f" with visual selection
-    vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
-  else
-    vim.cmd([[setlocal ve=]])
-    vim.cmd([[mapclear <buffer>]])
-    vim.b.venn_enabled = nil
-  end
+	local venn_enabled = vim.inspect(vim.b.venn_enabled)
+	if venn_enabled == "nil" then
+		vim.b.venn_enabled = true
+		vim.cmd([[setlocal ve=all]])
+		-- draw a line on HJKL keystokes
+		vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
+		-- draw a box by pressing "f" with visual selection
+		vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+	else
+		vim.cmd([[setlocal ve=]])
+		vim.cmd([[mapclear <buffer>]])
+		vim.b.venn_enabled = nil
+	end
 end
 
 -- toggle keymappings for venn using <leader>v

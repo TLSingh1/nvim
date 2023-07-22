@@ -15,17 +15,16 @@ M.setup = function()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
 
-
-vim.diagnostic.config({
-  underline = true,
-  virtual_text = true,
-  virtual_lines = {
-      only_current_line = true,
-      highlight_whole_line = false,
-    },
-  signs = true,
-  update_in_insert = false,
-})
+	vim.diagnostic.config({
+		underline = true,
+		virtual_text = true,
+		virtual_lines = {
+			only_current_line = true,
+			highlight_whole_line = false,
+		},
+		signs = true,
+		update_in_insert = false,
+	})
 
 	local config = {
 		-- disable virtual text
@@ -72,19 +71,21 @@ end
 
 -- Check if the current file type is markdown
 local function is_markdown_file()
-  local file_type = vim.bo.filetype
-  return file_type == "markdown"
+	local file_type = vim.bo.filetype
+	return file_type == "markdown"
 end
 
 -- NOTE: Obsidian override. Probably in wrong spot
 -- Override a keybind only for markdown files
 local function override_markdown_keybind()
-  if is_markdown_file() then
-    return ":ObsidianFollowLink <CR>"
-  else
-    return "<cmd>lua vim.lsp.buf.definition()<CR>"
-  end
+	if is_markdown_file() then
+		return ":ObsidianFollowLink <CR>"
+	else
+		return "<cmd>lua vim.lsp.buf.definition()<CR>"
+	end
 end
+
+
 
 -- Call the function to override the keybind
 override_markdown_keybind()
@@ -99,7 +100,7 @@ local function lsp_keymaps(bufnr)
 	--[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) ]]
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  -- NOTE: Uncomment this to enable code actions
+	-- NOTE: Uncomment this to enable code actions
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>t", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "i", "<C-g>", "<cmd>lua vim.lsp.buf.completion()<CR>", opts)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -117,21 +118,25 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  navbuddy.attach(client, bufnr)
+	navbuddy.attach(client, bufnr)
 	-- vim.notify(client.name .. " starting...")
 	-- TODO: refactor this into a method that checks if string in list
 	if client.name == "tsserver" then
-    client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 		-- client.resolved_capabilities.document_formatting = false
-    -- client.server_capabilities = {
-      -- document_formatting = false,
-    -- }
+		-- client.server_capabilities = {
+		-- document_formatting = false,
+		-- }
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then

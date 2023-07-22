@@ -12,10 +12,14 @@ require("tokyonight-config") -- Base Theme
 
 -- NOTE: SDKs
 require("icons-config")
+-- require("image-config")
 
 -- NOTE: Features
 -- require("venn-config")            -- Diagrams
 -- require("rest-config") -- REST Client
+-- require("ufo-config")           -- UFO
+require("codewindow-config")    -- Code Window
+-- require("minimap-config")       -- Minimap
 require("mdeval-config")        -- Markdown Eval
 require("neoai-config")         -- ChatGPT
 require("alpha-config")         -- Dashboard
@@ -33,7 +37,7 @@ require("notify-config")        -- Notifications
 -- NOTE: UI / UX / QoL
 require("lsp_lines-config")  -- LSP Lines
 require("inc_rename-config") -- Incremental Renaming
-require("true-zen-config")   -- Better Zen Mode
+-- require("true-zen-config")   -- Better Zen Mode
 -- require("twilight-config") -- Twilight
 -- require("harpoon-config") -- Harpoon
 require("colorizer-config")        -- Color Codes
