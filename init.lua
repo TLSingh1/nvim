@@ -12,14 +12,12 @@ require("tokyonight-config") -- Base Theme
 
 -- NOTE: SDKs
 require("icons-config")
--- require("image-config")
 
 -- NOTE: Features
 -- require("venn-config")            -- Diagrams
 -- require("rest-config") -- REST Client
 -- require("ufo-config")           -- UFO
 require("codewindow-config")    -- Code Window
--- require("minimap-config")       -- Minimap
 require("mdeval-config")        -- Markdown Eval
 require("neoai-config")         -- ChatGPT
 require("alpha-config")         -- Dashboard
@@ -37,9 +35,6 @@ require("notify-config")        -- Notifications
 -- NOTE: UI / UX / QoL
 require("lsp_lines-config")  -- LSP Lines
 require("inc_rename-config") -- Incremental Renaming
--- require("true-zen-config")   -- Better Zen Mode
--- require("twilight-config") -- Twilight
--- require("harpoon-config") -- Harpoon
 require("colorizer-config")        -- Color Codes
 require("indent-blankline-config") -- Indent Lines
 require("autopairs-config")        -- Auto Pairs
@@ -48,30 +43,10 @@ require("ts-autotag-config")       -- Auto Tags
 require("git-signs-config")        -- Git Indicators
 require("colorful-winsep-config")  -- Window Separator
 require("noice-config")            -- Better CmdLine
--- require("flash-config") -- Flash
 require("hop-config")              -- Better Navigation
 require("smart-splits-config")     -- Smart Splits
 require("comment-config")          -- Better Comments
 require("typescript-config")       -- Typescript Stuff
 require("todo-comments-config")    -- Find and Search comments
-
--- vim.cmd([[
---   augroup MyFiletypeHighlight
---     autocmd!
---     autocmd FileType neoai-input highlight FloatBorder guifg=#ff4444 guibg=#1affff
---     autocmd FileType neoai-input highlight Normal guibg=#1affff
---     autocmd FileType neoai-output highlight FloatBorder guifg=#ff4444 guibg=#1affff
---   augroup END
--- ]])
-
-
-
-
-
-
-
-
-
-
 
 vim.cmd("colorscheme tokyonight-moon")

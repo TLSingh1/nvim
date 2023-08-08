@@ -123,46 +123,46 @@ packer.startup({
 
 		-- NOTE: UI / UX / QoL
 
-		use({
-			"epwalsh/obsidian.nvim",
-			config = function()
-				require("obsidian").setup({
-					use_advanced_uri = true,
-					dir = "~/brain",
-					completion = {
-						nvim_cmp = true,
-					},
-					note_id_func = function(title)
-						local sane_name = ""
-						if title ~= nil then
-							-- If title is given, transform it into valid file name.
-							sane_name = title:gsub(" ", "_"):gsub("[^A-Za-z0-9-]", ""):lower()
-						else
-							-- If title is nil, just add 4 random uppercase letters to the suffix.
-							for _ in 1, 4 do
-								sane_name = sane_name .. string.char(math.random(65, 90))
-							end
-						end
-						return sane_name
-					end,
-					follow_url_func = function(url)
-						vim.fn.jobstart({ "xdg-open", url }) -- linux
-					end,
-					templates = {
-						subdir = "Templates",
-						date_format = "%a-%m-%d-%Y",
-						time_format = "%H:%M",
-					},
-				})
-				vim.keymap.set("n", "gd", function()
-					if require("obsidian").util.cursor_on_markdown_link() then
-						return "<cmd>ObsidianFollowLink<CR>"
-					else
-						return "gd"
-					end
-				end)
-			end,
-		})
+		-- use({
+		-- 	"epwalsh/obsidian.nvim",
+		-- 	config = function()
+		-- 		require("obsidian").setup({
+		-- 			use_advanced_uri = true,
+		-- 			dir = "~/brain",
+		-- 			completion = {
+		-- 				nvim_cmp = true,
+		-- 			},
+		-- 			note_id_func = function(title)
+		-- 				local sane_name = ""
+		-- 				if title ~= nil then
+		-- 					-- If title is given, transform it into valid file name.
+		-- 					sane_name = title:gsub(" ", "_"):gsub("[^A-Za-z0-9-]", ""):lower()
+		-- 				else
+		-- 					-- If title is nil, just add 4 random uppercase letters to the suffix.
+		-- 					for _ in 1, 4 do
+		-- 						sane_name = sane_name .. string.char(math.random(65, 90))
+		-- 					end
+		-- 				end
+		-- 				return sane_name
+		-- 			end,
+		-- 			follow_url_func = function(url)
+		-- 				vim.fn.jobstart({ "xdg-open", url }) -- linux
+		-- 			end,
+		-- 			templates = {
+		-- 				subdir = "Templates",
+		-- 				date_format = "%a-%m-%d-%Y",
+		-- 				time_format = "%H:%M",
+		-- 			},
+		-- 		})
+		-- 		vim.keymap.set("n", "gd", function()
+		-- 			if require("obsidian").util.cursor_on_markdown_link() then
+		-- 				return "<cmd>ObsidianFollowLink<CR>"
+		-- 			else
+		-- 				return "gd"
+		-- 			end
+		-- 		end)
+		-- 	end,
+		-- })
 
 		use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
 		use({ "smjonas/inc-rename.nvim" }) -- Rename

@@ -88,7 +88,7 @@ end
 
 
 -- Call the function to override the keybind
-override_markdown_keybind()
+-- override_markdown_keybind()
 
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
