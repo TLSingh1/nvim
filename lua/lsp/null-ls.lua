@@ -50,11 +50,12 @@ null_ls.setup({
     formatting.stylua,
     -- completion.spell,
     -- require("typescript.extensions.null-ls.code-actions"),
-    diagnostics.codespell.with({
-      filestypes = { "lua", "typescriptreact", "rust" },
-      extra_args = {
-        "-L crate",
-      },
-    }),
+    -- FIX: UNCOMMENT THIS BELOW 
+    -- diagnostics.codespell.with({
+    --   filestypes = { "lua", "typescriptreact", "rust" },
+    --   extra_args = {
+    --     "-L crate",
+    --   },
+    -- }),
   },
 })

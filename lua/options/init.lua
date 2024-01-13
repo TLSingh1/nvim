@@ -270,7 +270,7 @@ local options = {
   fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
 
 	linebreak = true,
-	textwidth = 60,
+	-- textwidth = 60,
 	-- wrapmargin = 6,
 }
 

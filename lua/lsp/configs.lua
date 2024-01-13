@@ -13,6 +13,7 @@ local servers = {
 	"golangci_lint_ls",
 	"marksman",
   "vuels",
+  "yamlls",
 }
 
 for _, server in pairs(servers) do

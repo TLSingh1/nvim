@@ -1,5 +1,10 @@
 require("neoai").setup({
-	open_api_key_env = "OPEN_AI_KEY",
+  open_ai = {
+    api_key = {
+      env = "OPEN_AI_KEY",
+    }
+  },
+	-- open_api_key_env = "OPEN_AI_KEY",
 	ui = {
 		output_popup_text = "",
 		width = 100,

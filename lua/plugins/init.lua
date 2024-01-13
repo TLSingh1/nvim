@@ -120,6 +120,7 @@ packer.startup({
 		})
 		use({ "simrat39/symbols-outline.nvim" }) -- Symbols Outline
 		use({ "rebelot/heirline.nvim" }) -- status lines
+    use({ "andweeb/presence.nvim" }) -- Discord Presence
 
 		-- NOTE: UI / UX / QoL
 

@@ -19,6 +19,13 @@ require("noice").setup({
     {
       filter = {
         error = true,
+        find = "golangci",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        error = true,
         find = "toc",
       },
       opts = { skip = true },
